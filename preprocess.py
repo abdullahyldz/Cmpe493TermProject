@@ -9,7 +9,9 @@ import re
  
  TO DO:
  1) Şu an için case-folding yapmadım ama kolayca ekleyebilirim.
- 2) Encoding sorunu olan dosyaları nasıl açacağımı öğrenicem.
+    lower() and casefold() will convert the string to lowercase, 
+    but casefold() will convert even the caseless letters such as the ß in German to ss.
+ 2) DONE - Encoding sorunu olan dosyaları nasıl açacağımı öğrenicem. 
  3) Birden çok pozisyon bilgisini nasıl daha kullanışlı kodlayabilirim ona bakıcam. (Bazılarının pozisyon
  bilgisi 697 722;729 730 şu şekilde verilmiş, şu anda 4ünü de tek bir pozisyon listesinde tutuyorum, ayrı iki örnek oluşturabilirim.)
  '''
@@ -55,7 +57,7 @@ class Dataset:
             self.term_obt.append([])
             read1 = True
             read2 = True
-            with open(self.a1[i], 'r') as f:
+            with open(self.a1[i], 'r', encoding='utf-8') as f:
                 try:
                     a1corpus = f.read().split('\n')
                 except UnicodeDecodeError:
