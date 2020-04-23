@@ -1,5 +1,6 @@
 import os
 import re
+from helloworld import hello
 '''
  Bazı dosyalarda hiç habitat örneği yok, şimdilik onları listeden çıkarmadım. 
  
@@ -128,6 +129,8 @@ class Dataset:
 
 
 if __name__ == "__main__":
+    imported = hello()
+    print(imported)
     data = Dataset()
 
     name, text, pos, term_entity, term_obt = data.get_item_by_name('BB-norm-448557')
