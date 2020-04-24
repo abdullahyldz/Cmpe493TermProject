@@ -1,6 +1,5 @@
 import os
 import re
-from helloworld import hello
 '''
  Bazı dosyalarda hiç habitat örneği yok, şimdilik onları listeden çıkarmadım. 
  
@@ -20,7 +19,7 @@ from helloworld import hello
 
 class Dataset:
     def __init__(self, path='./train/'):
-        os.chdir(path)
+        os.chdir(path) # TODO return back
         self.list = os.listdir('.')
         self.removed = False
         self.text = []
