@@ -1,5 +1,6 @@
 import os
 import re
+from pronto import Ontology
 '''
  Bazı dosyalarda hiç habitat örneği yok, şimdilik onları listeden çıkarmadım. 
  
@@ -19,8 +20,8 @@ import re
 
 class Dataset:
     def __init__(self, path='./train/'):
-        os.chdir(path) # TODO return back
-        self.list = os.listdir('.')
+        self.path = path
+        self.list = os.listdir(path)
         self.removed = False
         self.text = []
         self.a1 = []
@@ -28,16 +29,17 @@ class Dataset:
         self.names = []
         self.a1splitted = []  # contains list of files which contains list of lines
         self.a2splitted = []  # contains list of files which contains list of lines
-        self.pos = [] #contains list of files which containes position of each entity in each line
-        self.term_entity = [] # contains list of files which contains list of term number (i.e. T3) and corresponding entity as single string tuples
+        self.pos = []  # contains list of files which containes position of each entity in each line
+        self.term_entity = []  # contains list of files which contains list of term number (i.e. T3) and corresponding entity as single string tuples
         self.term_obt = []  # contains list of files which contains list of term number and corresponding OBT reference
+        self.onto = Ontology('./OntoBiotope.obo')
         self.do_all_processing()
 
     def process_file_type(self):
-        if not self.removed:
+        if (os.path.isfile(self.path+'LICENSE') and os.path.isfile(self.path+'README')):
             self.list.remove('LICENSE')
             self.list.remove('README')
-            self.removed = True
+        self.removed = True
         for i in self.list:
             type = i.split(".")
             if type[1] == 'a1':
@@ -57,7 +59,7 @@ class Dataset:
             self.term_obt.append([])
             read1 = True
             read2 = True
-            with open(self.a1[i], 'r', encoding='utf-8') as f:
+            with open(self.path + self.a1[i], 'r', encoding='utf-8') as f:
                 try:
                     a1corpus = f.read().split('\n')
                 except UnicodeDecodeError:
@@ -73,20 +75,21 @@ class Dataset:
                         self.a1splitted[i].remove(self.a1splitted[i][j])
                         j = j-1
                     j = j+1
-                with open(self.a2[i], 'r') as f:
-                    try:
-                        a2corpus = f.read().split('\n')
-                    except UnicodeDecodeError:
-                        print(self.names[i])
-                        read2 = False
-                        self.a1splitted.remove(self.a1splitted[i])
-                if read2:
-                    for k in a2corpus:
-                        self.a2splitted[i].append(re.split("\t|:| ", k))
-                    for j in self.a1splitted[i]:
-                        for k in self.a2splitted[i]:
-                            if j[0] in k:
-                                self.term_obt[i].append([j[0], k[-1]])
+                if len(self.a2) > 0:
+                    with open(self.path + self.a2[i], 'r') as f:
+                        try:
+                            a2corpus = f.read().split('\n')
+                        except UnicodeDecodeError:
+                            print(self.names[i])
+                            read2 = False
+                            self.a1splitted.remove(self.a1splitted[i])
+                    if read2:
+                        for k in a2corpus:
+                            self.a2splitted[i].append(re.split("\t|:| ", k))
+                        for j in self.a1splitted[i]:
+                            for k in self.a2splitted[i]:
+                                if j[0] in k:
+                                    self.term_obt[i].append([j[0], k[-1]])
 
     def process_a1_content(self):
         for i in range(len(self.a1splitted)): # each file
@@ -125,12 +128,51 @@ class Dataset:
             return
         return self.get_item_by_index(index)
 
+    def get_ontology_term(self, term):
+        found = False
+        for i in range(len(self.term_entity)):
+            for j in range(len(self.term_entity[i])):
+                iterate = self.term_entity[i][j][1]
+                if iterate == term:
+                    obt = self.term_obt[i][j][1]
+                    found = True
+                    break
+            if found:
+                break
+        if found:
+            term_name = (self.onto['OBT:' + obt]).name
+            return term_name
+        else:
+            print('No match in the training set')
+            return
+
+    def get_number_of_terms(self):
+        total = 0
+        for i in self.term_entity:
+            total = total + len(i)
+        return total
+
+
+def success_rate(train_set, test_set):
+    count = 0
+    for i in range(len(test_set.term_entity)):
+        for j in range(len(test_set.term_entity[i])):
+            iterate = test_set.term_entity[i][j][1]
+            term = train_set.get_ontology_term(iterate)
+            if term != None:
+                count = count + 1
+    success = count/test_set.get_number_of_terms()
+    return success
+
+
 
 
 if __name__ == "__main__":
-    imported = hello()
-    print(imported)
-    data = Dataset()
-
-    name, text, pos, term_entity, term_obt = data.get_item_by_name('BB-norm-448557')
+    dev_set = Dataset(path='./test/')
+    train_set = Dataset(path='./train/')
+    success = success_rate(train_set, dev_set)
+    ''''
+    name, text, pos, term_entity, term_obt = data.get_item_by_index(5)
+    term_name = data.get_ontology_term('gastric mucosa')
+    '''
     print('types seperated')
