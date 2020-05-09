@@ -1,6 +1,8 @@
 import os
 import re
 from pronto import Ontology
+from  nltk.corpus import stopwords
+import numpy as np
 '''
  Bazı dosyalarda hiç habitat örneği yok, şimdilik onları listeden çıkarmadım. 
  
@@ -21,6 +23,10 @@ from pronto import Ontology
 class Dataset:
     def __init__(self, path='./train/'):
         self.path = path
+        if 'train' in self.path: # to differentiate if the set is training or others
+            self.train = True
+        else:
+            self.train = False
         self.list = os.listdir(path)
         self.removed = False
         self.text = []
@@ -33,6 +39,7 @@ class Dataset:
         self.term_entity = []  # contains list of files which contains list of term number (i.e. T3) and corresponding entity as single string tuples
         self.term_obt = []  # contains list of files which contains list of term number and corresponding OBT reference
         self.onto = Ontology('./OntoBiotope.obo')
+        self.vocab = []
         self.do_all_processing()
 
     def process_file_type(self):
@@ -87,9 +94,12 @@ class Dataset:
                         for k in a2corpus:
                             self.a2splitted[i].append(re.split("\t|:| ", k))
                         for j in self.a1splitted[i]:
+                            once = False
                             for k in self.a2splitted[i]:
-                                if j[0] in k:
+                                if j[0] in k and not once:
                                     self.term_obt[i].append([j[0], k[-1]])
+                                    once = True
+
 
     def process_a1_content(self):
         for i in range(len(self.a1splitted)): # each file
@@ -104,13 +114,15 @@ class Dataset:
                         temp = ''
                         for l in range(k, len(j)):
                             temp = temp + j[l] + ' '
-                        self.term_entity[i].append([j[0], temp[:-1]]) # saves term number and entity string
+                        self.term_entity[i].append([j[0], temp[:-1]])# saves term number and entity string
                         break
 
     def do_all_processing(self):
         self.process_file_type()
         self.extract_habitat_info()
         self.process_a1_content()
+        if self.train:
+            self.create_vocabulary()
 
     def get_item_by_index(self, index): # get all attributes of the file by its index
         name = self.names[index]
@@ -128,36 +140,120 @@ class Dataset:
             return
         return self.get_item_by_index(index)
 
-    def get_ontology_term(self, term):
+    def exact_match(self, term):  # if a given term exists in the set, return its obt
         found = False
-        for i in range(len(self.term_entity)):
+        obt = None
+        for i in self.onto.terms:  # search the given term in ontology
+            onto_t = self.onto[i]
+            if onto_t.name == term:
+                found = True
+                temp = onto_t.id
+                obt = temp[4:]
+                return found, obt
+        for i in range(len(self.term_entity)):  # search given term in training set and if found retrieve its obt
             for j in range(len(self.term_entity[i])):
                 iterate = self.term_entity[i][j][1]
                 if iterate == term:
                     obt = self.term_obt[i][j][1]
                     found = True
-                    break
-            if found:
-                break
-        if found:
-            term_name = (self.onto['OBT:' + obt]).name
-            return term_name
-        else:
-            print('No match in the training set')
-            return
+                    return found, obt
+        return found, obt
 
-    def get_number_of_terms(self):
+    def get_number_of_terms(self): # unnecessary, but let's keep it for now
         total = 0
         for i in self.term_entity:
             total = total + len(i)
         return total
 
+    def create_vocabulary(self):
+        for i in self.term_entity:
+            for j in i:
+                words = remove_stop_words(j[1])
+                for k in words:
+                    if k not in self.vocab:
+                        self.vocab.append(k)
 
-def success_rate(train_set, test_set):
+    def get_term_entity_list(self):  # extends term-entity tuples into a single list
+        entity_list = []
+        for i in self.term_entity:
+            entity_list.extend(i)
+        return entity_list
+
+    def get_term_obt_list(self): # extends term-obt tuples into a single list
+        obt_list = []
+        for i in self.term_obt:
+            obt_list.extend(i)
+        return obt_list
+
+def remove_stop_words(term):
+    stop = stopwords.words('english')
+    words = term.split()
+    k = 0
+    while k < len(words):
+        if words[k] in stop:
+            words.remove(words[k])
+            k = k - 1
+        k = k + 1
+    return words
+
+
+def cos_similarity(str1, str2, vocab): # given two strings and vocabulary, computes cosine distance
+    term1 = np.zeros([len(vocab),])
+    term2 = np.zeros([len(vocab),])
+    words1 = remove_stop_words(str1)
+    words2 = remove_stop_words(str2)
+    for i in words1:
+        if i in vocab:
+            ind = vocab.index(i)
+            term1[ind] = 1
+    for i in words2:
+        if i in vocab:
+            ind = vocab.index(i)
+            term2[ind] = 1
+    norm = np.linalg.norm(term1)*np.linalg.norm(term2)
+    if norm != 0:
+        similarity = np.dot(term1, term2)/norm
+    else:
+        similarity = 0
+    return similarity
+
+def most_similar_obt(train_set, term):  # given a term from test, finds the most similar word in terms of cosine similarity
+    entity_list = train_set.get_term_entity_list()
+    obt_list = train_set.get_term_obt_list()
+    similarity_res = np.zeros([len(entity_list), ])
+    for i in range(len(entity_list)):
+        train_term = entity_list[i][1]
+        similarity_res[i] = cos_similarity(train_term, term, train_set.vocab)
+
+    ind = np.argmax(similarity_res)
+    obt = obt_list[ind][1]
+    return obt
+
+
+def results(train_set, test_set): # iterates through test set terms and creates a list of estimated OBTs
+    estimated_obts = []
+    for i in test_set.term_entity:
+        for j in i:
+            term = j[1]
+            exact, obt = train_set.exact_match(term)
+            if exact:
+                estimated_obts.append(obt)
+            else:
+                obt = most_similar_obt(train_set, term)
+                estimated_obts.append(obt)
+    obts = test_set.get_term_obt_list()
     count = 0
-    for i in range(len(test_set.term_entity)):
-        for j in range(len(test_set.term_entity[i])):
-            iterate = test_set.term_entity[i][j][1]
+    for i in range(len(estimated_obts)):
+        if estimated_obts[i] == obts[i][1]:
+            count = count + 1
+    success = count/len(estimated_obts)
+    return success
+
+def success_rate(train_set, test_set): # deprecated
+    count = 0
+    for i in test_set.term_entity:
+        for j in i:
+            iterate = j[1]
             term = train_set.get_ontology_term(iterate)
             if term != None:
                 count = count + 1
@@ -168,11 +264,11 @@ def success_rate(train_set, test_set):
 
 
 if __name__ == "__main__":
-    dev_set = Dataset(path='./test/')
+    dev_set = Dataset(path='./dev/')
     train_set = Dataset(path='./train/')
-    success = success_rate(train_set, dev_set)
+    result = results(train_set, dev_set)
     ''''
     name, text, pos, term_entity, term_obt = data.get_item_by_index(5)
     term_name = data.get_ontology_term('gastric mucosa')
     '''
-    print('types seperated')
+    print(result)
