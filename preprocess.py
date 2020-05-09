@@ -1,8 +1,10 @@
 import os
 import re
 from pronto import Ontology
-from  nltk.corpus import stopwords
+from nltk.corpus import stopwords
 import numpy as np
+import nltk
+from gensim.models import Word2Vec
 '''
  Bazı dosyalarda hiç habitat örneği yok, şimdilik onları listeden çıkarmadım. 
  
@@ -40,6 +42,7 @@ class Dataset:
         self.term_obt = []  # contains list of files which contains list of term number and corresponding OBT reference
         self.onto = Ontology('./OntoBiotope.obo')
         self.vocab = []
+        self.term_list = []
         self.do_all_processing()
 
     def process_file_type(self):
@@ -114,8 +117,12 @@ class Dataset:
                         temp = ''
                         for l in range(k, len(j)):
                             temp = temp + j[l] + ' '
-                        self.term_entity[i].append([j[0], temp[:-1]])# saves term number and entity string
+                        self.term_entity[i].append([j[0], temp[:-1]])  # saves term number and entity string
                         break
+
+    def create_term_list(self):
+        for i in range(len(self.term_entity)):
+            self.term_list.append(self.term_entity[i][1])
 
     def do_all_processing(self):
         self.process_file_type()
@@ -143,13 +150,17 @@ class Dataset:
     def exact_match(self, term):  # if a given term exists in the set, return its obt
         found = False
         obt = None
-        for i in self.onto.terms:  # search the given term in ontology
-            onto_t = self.onto[i]
-            if onto_t.name == term:
-                found = True
-                temp = onto_t.id
-                obt = temp[4:]
-                return found, obt
+        lemma_term = lemmatize_term(term)
+        terms = [term, lemma_term]
+        for j in terms:
+            for i in self.onto.terms:  # search the given term in ontology
+                onto_t = self.onto[i]
+                if onto_t.name == j:
+                    found = True
+                    temp = onto_t.id
+                    obt = temp[4:]
+                    return found, obt
+
         for i in range(len(self.term_entity)):  # search given term in training set and if found retrieve its obt
             for j in range(len(self.term_entity[i])):
                 iterate = self.term_entity[i][j][1]
@@ -196,6 +207,14 @@ def remove_stop_words(term):
         k = k + 1
     return words
 
+def lemmatize_term(term):
+    words = term.split()
+    lemma = nltk.wordnet.WordNetLemmatizer()
+    new_words = []
+    for i in words:
+        new_words.append(lemma.lemmatize(i))
+    new_term = " ".join(new_words)
+    return new_term
 
 def cos_similarity(str1, str2, vocab): # given two strings and vocabulary, computes cosine distance
     term1 = np.zeros([len(vocab),])
@@ -242,12 +261,21 @@ def results(train_set, test_set): # iterates through test set terms and creates 
                 obt = most_similar_obt(train_set, term)
                 estimated_obts.append(obt)
     obts = test_set.get_term_obt_list()
+    test_terms = test_set.get_term_entity_list()
+    train_terms = train_set.get_term_entity_list()
     count = 0
+    error_list = [['Input Term', 'Normalized Term', 'Normalized OBT', 'True Normalized Term', 'True Normalized OBT']]
     for i in range(len(estimated_obts)):
         if estimated_obts[i] == obts[i][1]:
             count = count + 1
+        else:
+            error_list.append([test_terms[i][1], train_set.onto['OBT:' + estimated_obts[i]].name, estimated_obts[i], train_set.onto['OBT:'+obts[i][1]].name, obts[i][1]])
     success = count/len(estimated_obts)
+    with open('./errorlog.txt', 'w') as f:
+        for i in error_list:
+            f.write('{} || {} || {} || {} || {}\n'.format(i[0], i[1], i[2], i[3], i[4]))
     return success
+
 
 def success_rate(train_set, test_set): # deprecated
     count = 0

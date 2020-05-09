@@ -1,0 +1,324 @@
+Input Term || Normalized Term || Normalized OBT || True Normalized Term || True Normalized OBT
+gastric mucosal-associated lymphoid tissue || stomach || 001792 || lymphatic system part || 000334
+gastric mucosal || stomach || 001792 || gastric mucosa || 001577
+MALT || nutrient broth || 000360 || lymphatic system part || 000334
+gastric MALT || stomach || 001792 || lymphatic system part || 000334
+patients with atypical lymphoid infiltrates || elderly person || 003285 || patient || 003220
+patients with low-grade MALT lymphoma || elderly person || 003285 || patient || 003220
+patients with Helicobacter pylori-chronic active gastritis || elderly person || 003285 || patient with infectious disease || 003269
+patients with high-grade primary gastric lymphoma || elderly person || 003285 || patient || 003220
+MALT || nutrient broth || 000360 || lymphatic system part || 000334
+CD20 || nutrient broth || 000360 || lymphocyte || 001623
+CD3 || nutrient broth || 000360 || lymphocyte || 001623
+MALT || nutrient broth || 000360 || lymphatic system part || 000334
+patients with chronic active gastritis || elderly person || 003285 || patient || 003220
+CD20-positive cells || phagocyte || 000801 || lymphocyte || 001623
+lymphocytic || nutrient broth || 000360 || lymphocyte || 001623
+lymphocytic || nutrient broth || 000360 || lymphocyte || 001623
+Lymphoepithelial || nutrient broth || 000360 || lymphatic system part || 000334
+Lymphoepithelial lesions || Intestinal mucosal lesion || 000471 || lesion || 000332
+gastric biopsies || stomach || 001792 || medical sample || 000110
+CD20 || nutrient broth || 000360 || lymphocyte || 001623
+CD3 || nutrient broth || 000360 || lymphocyte || 001623
+gastric MALT || stomach || 001792 || lymphatic system part || 000334
+chicken nugget processing plant || plant || 000393 || meat industry || 002129
+chicken || chicken || 003314 || chicken meat || 002394
+chicken nugget || chicken meat || 002394 || prepared meat || 001265
+food handlers || food for human || 000094 || worker || 003311
+food || food || 000008 || food for human || 000094
+chicken || chicken || 003314 || chicken meat || 002394
+chicken nugget || chicken meat || 002394 || prepared meat || 001265
+chicken nugget processing plant || plant || 000393 || meat industry || 002129
+selective agars || nutrient broth || 000360 || agar || 000031
+PALCAM || nutrient broth || 000360 || agar || 000031
+LPM || nutrient broth || 000360 || agar || 000031
+HCLA || nutrient broth || 000360 || agar || 000031
+food handler || food for human || 000094 || worker || 003311
+food || food || 000008 || food for human || 000094
+food || food || 000008 || food for human || 000094
+food handlers || food for human || 000094 || worker || 003311
+H. pylori-positive subjects || immunodeficient person || 003206 || patient with infectious disease || 003269
+H. pylori-negative subjects || immunodeficient person || 003206 || healthy person || 002712
+H. pylori-infected monkeys || microflora || 000113 || animal with disease || 000491
+control monkeys || cheese || 001480 || monkey || 003107
+patients with chronic gastritis || elderly person || 003285 || patient || 003220
+patients with gastric cancer || elderly person || 003285 || patient || 003220
+young Japanese gastric cancer patients || elderly person || 003285 || child || 003188
+control group || cheese || 001480 || child || 003188
+young Japanese people || patient with infectious disease || 003269 || child || 003188
+gastroenteritis patients || elderly person || 003285 || patient with infectious disease || 003269
+fish samples || fish meat and fish meat product || 001549 || fish || 002793
+Human || nutrient broth || 000360 || human || 002488
+human || human || 002488 || patient with infectious disease || 003269
+patients suffering from rickettsial disease of different degrees of severity || elderly person || 003285 || patient with infectious disease || 003269
+humans || human || 002488 || patient with infectious disease || 003269
+Culex pipiens molestus || nutrient broth || 000360 || mosquito || 002142
+culicine mosquito || nutrient broth || 000360 || mosquito || 002142
+paediatric cystic fibrosis units || nutrient broth || 000360 || hospital environment || 000097
+paediatric || nutrient broth || 000360 || child || 003188
+adult cystic fibrosis units || adult human || 003245 || hospital environment || 000097
+cystic fibrosis (CF) units || nutrient broth || 000360 || hospital environment || 000097
+Sputum || nutrient broth || 000360 || sputum || 001335
+productive patients || elderly person || 003285 || patient || 003220
+regional adult CF units || adult human || 003245 || hospital environment || 000097
+regional paediatric CF units || patient || 003220 || hospital environment || 000097
+paediatric || nutrient broth || 000360 || child || 003188
+dyspeptic patients || elderly person || 003285 || patient || 003220
+patients with chronic dyspepsia || elderly person || 003285 || patient || 003220
+Gastric biopsies || stomach || 001792 || medical sample || 000110
+Patients with H. pylori infection || patient || 003220 || patient with infectious disease || 003269
+dyspeptic patients || elderly person || 003285 || patient || 003220
+neonatal || nutrient broth || 000360 || newborn infant || 003453
+humans || human || 002488 || pregnant woman || 003493
+animals || animal || 000193 || female animal || 001103
+placenta of a 38-year-old secondary recurrent aborter || experimental medium || 000007 || placenta || 000811
+38-year-old secondary recurrent aborter || experimental medium || 000007 || pregnant woman || 003493
+study population || nutrient broth || 000360 || child || 003188
+age-matched healthy controls || healthy person || 002712 || child || 003188
+children less than two years of age || child || 003188 || ill person || 003156
+older children || child || 003188 || ill person || 003156
+Children attending the hospitals || hospital || 002714 || patient with infectious disease || 003269
+mucous || nutrient broth || 000360 || mucus || 001220
+stools || nutrient broth || 000360 || feces || 001102
+piped water || water || 000468 || drinking water || 001530
+fresh water || water || 000468 || freshwater || 002455
+fresh water supply || water || 000468 || drinking water supply || 001082
+unhygienic septic tank || nutrient broth || 000360 || septic tank || 003116
+Adoratopsylla antiquorum antiquorum || nutrient broth || 000360 || flea || 002034
+Ctenocephalides felis felis || nutrient broth || 000360 || flea || 002034
+Polygenis atopus || nutrient broth || 000360 || flea || 002034
+Polygenis rimatus || nutrient broth || 000360 || flea || 002034
+Polygenis roberti roberti || nutrient broth || 000360 || flea || 002034
+Polygenis tripus || nutrient broth || 000360 || flea || 002034
+Rhopalopsyllus lugubris || nutrient broth || 000360 || flea || 002034
+Rhopalopsyllus lutzi lutzi || nutrient broth || 000360 || flea || 002034
+Amblyomma aureolatum || nutrient broth || 000360 || tick || 001821
+Amblyomma cajennense || nutrient broth || 000360 || tick || 001821
+Amblyomma dubitatum || nutrient broth || 000360 || tick || 001821
+Ixodes loricatus || nutrient broth || 000360 || tick || 001821
+Rhipicephalus sanguineus || nutrient broth || 000360 || brown dog tick || 002693
+animal blood || animal blood || 001863 || blood || 000521
+animal sera || animal || 000193 || experimental medium || 000007
+human sera || human || 002488 || blood serum || 000524
+opossum sera || nutrient broth || 000360 || blood serum || 000524
+dog sera || nutrient broth || 000360 || blood serum || 000524
+horse sera || nutrient broth || 000360 || blood serum || 000524
+human sera || human || 002488 || experimental medium || 000007
+sera || nutrient broth || 000360 || blood serum || 000524
+opossum sera || nutrient broth || 000360 || blood serum || 000524
+dog sera || nutrient broth || 000360 || experimental medium || 000007
+horse sera || nutrient broth || 000360 || blood serum || 000524
+LTQ Orbitrap high-resolution mass spectrometer || nutrient broth || 000360 || laboratory equipment || 000103
+mixtures of pure compounds and uniformly 13C-labeled cell extracts || cell || 000061 || experimental medium || 000007
+LTQ Obitrap || nutrient broth || 000360 || laboratory equipment || 000103
+monocyte-like THP-1 cells || phagocyte || 000801 || cell culture || 000062
+human monocyte-like THP-1 cells || cell || 000061 || cell culture || 000062
+monocyte-like THP-1 cells || phagocyte || 000801 || monocyte || 003001
+monocyte-like THP-1 cells || phagocyte || 000801 || cell culture || 000062
+monocyte-like THP-1 cells || phagocyte || 000801 || monocyte || 003001
+infected monocytes || glial cell || 000647 || monocyte || 003001
+monocyte-like THP-1 cells || phagocyte || 000801 || monocyte || 003001
+Bile || nutrient broth || 000360 || bile || 000514
+Bile || nutrient broth || 000360 || bile || 000514
+Perdix perdix || nutrient broth || 000360 || partridge || 003066
+commercially reared partridges || nutrient broth || 000360 || livestock || 002726
+Perdix perdix || nutrient broth || 000360 || partridge || 003066
+Cloacal swabs of partridges || nutrient broth || 000360 || rectal swab || 001737
+Cloacal || nutrient broth || 000360 || cloaca || 001488
+partridges || partridge || 003066 || livestock || 002726
+male birds || broiler chicken || 003334 || male animal || 001192
+female birds || broiler chicken || 003334 || livestock || 002726
+game bird || nutrient broth || 000360 || bird || 001446
+game bird farm || fish farm || 000630 || animal farm || 000194
+cloacal swabs || nutrient broth || 000360 || rectal swab || 001737
+Adult partridges || nutrient broth || 000360 || adult animal || 001395
+younger ones || infant || 003263 || young animal || 001849
+game birds || broiler chicken || 003334 || bird || 001446
+commercially reared partridges || nutrient broth || 000360 || partridge || 003066
+Neutrophils || nutrient broth || 000360 || neutrophil || 003004
+human innate immune system || immune system || 000321 || innate immune system || 000686
+polymorphonuclear leukocytes || leukocyte || 000706 || granulocyte || 001134
+PMNs || nutrient broth || 000360 || granulocyte || 001134
+murine macrophages || murine || 002530 || macrophage || 002995
+murine dendritic cells || murine || 002530 || dendritic cell || 002785
+human monocyte-derived macrophages || human || 002488 || macrophage || 002995
+HMDM || nutrient broth || 000360 || macrophage || 002995
+HMDMs || nutrient broth || 000360 || macrophage || 002995
+human neutrophils || human || 002488 || neutrophil || 003004
+PMN || nutrient broth || 000360 || granulocyte || 001134
+PMN || nutrient broth || 000360 || granulocyte || 001134
+human PMNs || human || 002488 || granulocyte || 001134
+cell || cell || 000061 || leukocyte || 000706
+PMN || nutrient broth || 000360 || granulocyte || 001134
+PMN || nutrient broth || 000360 || granulocyte || 001134
+PMN cell || cell || 000061 || granulocyte || 001134
+human neutrophils || human || 002488 || neutrophil || 003004
+PMN || nutrient broth || 000360 || granulocyte || 001134
+PMN cell || cell || 000061 || granulocyte || 001134
+PMN || nutrient broth || 000360 || granulocyte || 001134
+PMN || nutrient broth || 000360 || granulocyte || 001134
+probiotic fermented milk beverage || milk || 001645 || probiotic food || 001269
+soft stools || soft cheese || 003459 || feces || 001102
+fermented milk beverage || milk || 001645 || fermented milk || 003146
+bottle || bottle || 001456 || fermented milk || 003146
+probiotics || probiotic || 000827 || probiotic food || 001269
+bottle || bottle || 001456 || fermented milk || 003146
+soft stools || soft cheese || 003459 || feces || 001102
+healthy adults || adult human || 003245 || healthy person || 002712
+soft stools || soft cheese || 003459 || feces || 001102
+probiotics || probiotic || 000827 || probiotic food || 001269
+probiotic || probiotic || 000827 || probiotic food || 001269
+water content of the stools || water || 000468 || body fluid || 000215
+stools || nutrient broth || 000360 || feces || 001102
+probiotic || probiotic || 000827 || probiotic food || 001269
+probiotic group || nutrient broth || 000360 || adult human || 003245
+placebo group || nutrient broth || 000360 || adult human || 003245
+probiotic || probiotic || 000827 || probiotic food || 001269
+stools || nutrient broth || 000360 || feces || 001102
+probiotics || probiotic || 000827 || probiotic food || 001269
+probiotic groups || nutrient broth || 000360 || adult human || 003245
+probiotic || probiotic || 000827 || probiotic food || 001269
+placebo groups || nutrient broth || 000360 || adult human || 003245
+probiotic fermented milk beverage || milk || 001645 || probiotic food || 001269
+healthy individuals with soft stool || feces || 001102 || healthy person || 002712
+perianal || nutrient broth || 000360 || anus || 000988
+perianal ulceration || nutrient broth || 000360 || ulcer || 000933
+HIV-positive men who have sex with men || immunodeficient person || 003206 || ill person || 003156
+men || nutrient broth || 000360 || man || 003451
+MSM || nutrient broth || 000360 || man || 003451
+Patients || patient || 003220 || man || 003451
+rectal || nutrient broth || 000360 || rectum || 001738
+MSM attending sexually transmitted infection clinics || child || 003188 || man || 003451
+sexually transmitted infection clinics || patient with infectious disease || 003269 || clinic || 002694
+anorectal || nutrient broth || 000360 || anus || 000988
+HIV-infected patients presenting with isolated perianal ulcer disease || elderly person || 003285 || man || 003451
+perianal ulcer || duodenal ulcer || 001533 || ulcer || 000933
+perianal || nutrient broth || 000360 || anus || 000988
+rectal || nutrient broth || 000360 || rectum || 001738
+MSM with proctitis || nutrient broth || 000360 || man || 003451
+MSM with perianal ulcer disease || duodenal ulcer || 001533 || man || 003451
+perianal || nutrient broth || 000360 || anus || 000988
+perianal ulcer || duodenal ulcer || 001533 || ulcer || 000933
+female mouse model of genital tract chlamydia infection || genital tract || 000643 || female animal || 001103
+oviduct || nutrient broth || 000360 || urogenital tract part || 000463
+mucosal || nutrient broth || 000360 || mucosal tissue || 001218
+mice || mouse || 002727 || laboratory mice || 003211
+intranasal || nutrient broth || 000360 || nose || 000767
+mice || mouse || 002727 || female animal || 001103
+T-cells || nutrient broth || 000360 || lymphocyte || 001623
+mucosal || nutrient broth || 000360 || mucosal tissue || 001218
+world's oceans || nutrient broth || 000360 || marine water || 003105
+marine organisms || marine environment || 000338 || living organism || 000010
+Penicillium-sensitive atopic sera || nutrient broth || 000360 || experimental medium || 000007
+mice || mouse || 002727 || laboratory mice || 003211
+aerosolized || nutrient broth || 000360 || aerosol || 000030
+mice || mouse || 002727 || laboratory mice || 003211
+human macrophages || human || 002488 || macrophage || 002995
+natural fermented koumiss || fermented milk || 003146 || kumis || 003210
+cellophane membrane disks || nutrient broth || 000360 || laboratory equipment || 000103
+urine of leprosy patients || elderly person || 003285 || urine || 001367
+leprosy patients || elderly person || 003285 || patient with infectious disease || 003269
+urine of leprosy patients || elderly person || 003285 || urine || 001367
+leprosy patients || elderly person || 003285 || patient with infectious disease || 003269
+urine of LL patients || elderly person || 003285 || urine || 001367
+LL patients || elderly person || 003285 || patient with infectious disease || 003269
+nitrocellulose paper || nutrient broth || 000360 || experimental medium || 000007
+urine of LL patients || elderly person || 003285 || urine || 001367
+LL patients || elderly person || 003285 || patient with infectious disease || 003269
+pulmonary || nutrient broth || 000360 || lung || 000716
+Tuberculosis Reference Laboratory || nutrient broth || 000360 || laboratory || 001169
+pulmonary || nutrient broth || 000360 || lung || 000716
+superficial abscesses || nutrient broth || 000360 || abscess || 000476
+sera from patients with different clinical spectra and with other infections || patient with infectious disease || 003269 || blood serum || 000524
+sera from patients with melioidosis || elderly person || 003285 || blood serum || 000524
+patients with melioidosis || elderly person || 003285 || patient with infectious disease || 003269
+hyperimmune mouse || nutrient broth || 000360 || laboratory mice || 003211
+hyperimmune mouse sera || nutrient broth || 000360 || blood serum || 000524
+vacuum- packed cold-smoked salmon stored at 5 degrees C || patient with infectious disease || 003269 || cooled food || 001500
+modified-atmosphere-packed cold-smoked salmon stored at 5 degrees C || patient with infectious disease || 003269 || modified-atmosphere-packed food || 002140
+spoiled cold-smoked salmon || nutrient broth || 000360 || spoiled food || 000430
+vacuum-packed cold-smoked salmon || nutrient broth || 000360 || vacuum-packed food || 002300
+vacuum packages || nutrient broth || 000360 || vacuum-packed food || 002300
+vacuum-packed salmon || nutrient broth || 000360 || vacuum-packed food || 002300
+cold-smoked salmon stored at 5 degrees C || patient with infectious disease || 003269 || cooled food || 001500
+salmon || salmon || 003021 || salmon meat || 002593
+patients with active duodenal ulcer disease and H pylori infection || patient || 003220 || patient with infectious disease || 003269
+ulcer || ulcer || 000933 || duodenal ulcer || 001533
+patients || patient || 003220 || patient with infectious disease || 003269
+patients || patient || 003220 || patient with infectious disease || 003269
+patients || patient || 003220 || patient with infectious disease || 003269
+patients with PPI-based triple therapy || elderly person || 003285 || patient with infectious disease || 003269
+patients with bismuth-based triple therapy || elderly person || 003285 || patient with infectious disease || 003269
+patients || patient || 003220 || patient with infectious disease || 003269
+semi-hard cheeses || cheese || 001480 || semi soft cheese || 003458
+Maasdammer || nutrient broth || 000360 || semi soft cheese || 003458
+Swiss-type cheeses || cheese || 001480 || ripened cheese || 003428
+yoghurts || nutrient broth || 000360 || yogurt || 003241
+Gorgonzola cheeses || cheese || 001480 || Gorgonzola || 003504
+Taleggio cheeses || cheese || 001480 || Taleggio || 003525
+Formaggio di Fossa cheeses || cheese || 001480 || Formaggio di Fossa || 003473
+Casera || nutrient broth || 000360 || Valtellina Casera || 003483
+Casera || nutrient broth || 000360 || Valtellina Casera || 003483
+Casera cheese || cheese || 001480 || Valtellina Casera || 003483
+Casera cheeses || cheese || 001480 || Valtellina Casera || 003483
+Gorgonzola cheeses || cheese || 001480 || Gorgonzola || 003504
+Casera || nutrient broth || 000360 || Valtellina Casera || 003483
+Casera cheese || cheese || 001480 || Valtellina Casera || 003483
+Formaggio di Fossa cheeses || cheese || 001480 || Formaggio di Fossa || 003473
+Scimudin cheeses || cheese || 001480 || Scimudin || 003522
+Casera cheese || cheese || 001480 || Valtellina Casera || 003483
+SB || nutrient broth || 000360 || agar || 000031
+Casera cheeses || cheese || 001480 || Valtellina Casera || 003483
+Taleggio cheeses || cheese || 001480 || Taleggio || 003525
+Gorgonzola cheeses || cheese || 001480 || Gorgonzola || 003504
+Scimudin cheeses || cheese || 001480 || Scimudin || 003522
+Gorgonzola surfaces || surface of food || 000902 || surface of cheese || 001341
+Scimudin surfaces || surface of food || 000902 || surface of cheese || 001341
+Taleggio surfaces || surface of food || 000902 || surface of cheese || 001341
+Casera || nutrient broth || 000360 || Valtellina Casera || 003483
+Scimudin cheese || cheese || 001480 || Scimudin || 003522
+Taleggio cheeses || cheese || 001480 || Taleggio || 003525
+Scimudin cheeses || cheese || 001480 || Scimudin || 003522
+Gorgonzola cheese || cheese || 001480 || Gorgonzola || 003504
+Taleggio cheeses || cheese || 001480 || Taleggio || 003525
+Casera cheeses || cheese || 001480 || Valtellina Casera || 003483
+Scimudin cheeses || cheese || 001480 || Scimudin || 003522
+Taleggio cheeses || cheese || 001480 || Taleggio || 003525
+Scimudin cheeses || cheese || 001480 || Scimudin || 003522
+Casera cheeses || cheese || 001480 || Valtellina Casera || 003483
+Gorgonzola cheeses || cheese || 001480 || Gorgonzola || 003504
+Formaggio di Fossa cheeses || cheese || 001480 || Formaggio di Fossa || 003473
+Gorgonzola cheeses || cheese || 001480 || Gorgonzola || 003504
+Taleggio  cheeses || cheese || 001480 || Taleggio || 003525
+white mould rind || nutrient broth || 000360 || cheese rind || 001481
+Scimudin cheese || cheese || 001480 || Scimudin || 003522
+Casera Valtellina || nutrient broth || 000360 || Valtellina Casera || 003483
+rind || nutrient broth || 000360 || cheese rind || 001481
+Casera cheese || cheese || 001480 || Valtellina Casera || 003483
+Gorgonzola cheese || cheese || 001480 || Gorgonzola || 003504
+Scimudin cheese || cheese || 001480 || Scimudin || 003522
+rind of Gorgonzola cheeses || cheese || 001480 || cheese rind || 001481
+rind of Scimudin cheeses || cheese || 001480 || cheese rind || 001481
+Gorgonzola cheeses || cheese || 001480 || Gorgonzola || 003504
+Scimudin cheeses || cheese || 001480 || Scimudin || 003522
+Gobbeen cheese || cheese || 001480 || Gubbeen || 003505
+Fontina cheese || cheese || 001480 || Fontina || 003472
+Gorgonzola rind || nutrient broth || 000360 || cheese rind || 001481
+Taleggio rind || nutrient broth || 000360 || cheese rind || 001481
+surface of Gorgonzola cheeses || cheese || 001480 || surface of cheese || 001341
+surface of Scimudin cheeses || cheese || 001480 || surface of cheese || 001341
+Gorgonzola cheeses || cheese || 001480 || Gorgonzola || 003504
+Scimudin cheeses || cheese || 001480 || Scimudin || 003522
+Formaggio di Fossa cheese || cheese || 001480 || Formaggio di Fossa || 003473
+fermented fish || fish meat and fish meat product || 001549 || fermented fish product || 003145
+Scimudin surfaces || surface of food || 000902 || surface of cheese || 001341
+Gorgonzola surfaces || surface of food || 000902 || surface of cheese || 001341
+Fontina rind || nutrient broth || 000360 || cheese rind || 001481
+Formaggio di  Fossa cheese || cheese || 001480 || Formaggio di Fossa || 003473
+community || community || 002697 || microflora || 000113
+food || food || 000008 || food for human || 000094
+cheese communities || cheese || 001480 || microflora || 000113
+dry natural rinds || dried food || 001526 || cheese rind || 001481
+community || community || 002697 || microflora || 000113
+community || community || 002697 || microflora || 000113
+community || community || 002697 || microflora || 000113
