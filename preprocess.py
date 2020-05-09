@@ -43,6 +43,7 @@ class Dataset:
         self.onto = Ontology('./OntoBiotope.obo')
         self.vocab = []
         self.term_list = []
+        self.abbv = get_acronym_list()
         self.do_all_processing()
 
     def process_file_type(self):
@@ -150,6 +151,7 @@ class Dataset:
     def exact_match(self, term):  # if a given term exists in the set, return its obt
         found = False
         obt = None
+        term = find_process_abbreviation(term, self.abbv)
         lemma_term = lemmatize_term(term)
         terms = [term, lemma_term]
         for j in terms:
@@ -276,6 +278,33 @@ def results(train_set, test_set): # iterates through test set terms and creates 
             f.write('{} || {} || {} || {} || {}\n'.format(i[0], i[1], i[2], i[3], i[4]))
     return success
 
+def get_acronym_list(path='./acronym_set.txt'):
+    with open(path, 'r') as f:
+        acr_lines = f.read().split('\n')
+    seperated = []
+    for i in acr_lines:
+        temp = re.split(":", i)
+        if len(temp) > 1:
+            temp[0] = temp[0][:-1]
+            temp[1] = temp[1][1:]
+            seperated.extend(temp)
+    return seperated
+
+def find_process_abbreviation(term, acr_list):
+    words = term.split()
+    for i in range(len(words)):
+        if words[i].isupper():
+            words[i] = process_abbv(words[i], acr_list)
+    new_term = " ".join(words)
+    return new_term
+
+def process_abbv(word, acr_list):
+    try:
+        ind = acr_list.index(word)
+        word = acr_list[ind+1]
+    except ValueError:
+        return word
+    return word
 
 def success_rate(train_set, test_set): # deprecated
     count = 0
@@ -292,6 +321,7 @@ def success_rate(train_set, test_set): # deprecated
 
 
 if __name__ == "__main__":
+
     dev_set = Dataset(path='./dev/')
     train_set = Dataset(path='./train/')
     result = results(train_set, dev_set)
@@ -299,4 +329,5 @@ if __name__ == "__main__":
     name, text, pos, term_entity, term_obt = data.get_item_by_index(5)
     term_name = data.get_ontology_term('gastric mucosa')
     '''
-    print(result)
+
+    #print(result)
