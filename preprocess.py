@@ -151,9 +151,12 @@ class Dataset:
     def exact_match(self, term):  # if a given term exists in the set, return its obt
         found = False
         obt = None
-        term = find_process_abbreviation(term, self.abbv)
+
         lemma_term = lemmatize_term(term)
-        terms = [term, lemma_term]
+        if lemma_term == term:
+            terms = [term]
+        else:
+            terms = [term, lemma_term]
         for j in terms:
             for i in self.onto.terms:  # search the given term in ontology
                 onto_t = self.onto[i]
@@ -255,7 +258,7 @@ def results(train_set, test_set): # iterates through test set terms and creates 
     estimated_obts = []
     for i in test_set.term_entity:
         for j in i:
-            term = j[1]
+            term = find_process_abbreviation(j[1], test_set.abbv)
             exact, obt = train_set.exact_match(term)
             if exact:
                 estimated_obts.append(obt)

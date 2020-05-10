@@ -1,23 +1,27 @@
 Input Term || Normalized Term || Normalized OBT || True Normalized Term || True Normalized OBT
 gastric mucosal-associated lymphoid tissue || stomach || 001792 || lymphatic system part || 000334
 gastric mucosal || stomach || 001792 || gastric mucosa || 001577
-MALT || nutrient broth || 000360 || lymphatic system part || 000334
+MALT || animal tissue || 000196 || lymphatic system part || 000334
+monoclonal B cells || phagocyte || 000801 || lymphocyte || 001623
 gastric MALT || stomach || 001792 || lymphatic system part || 000334
 patients with atypical lymphoid infiltrates || elderly person || 003285 || patient || 003220
 patients with low-grade MALT lymphoma || elderly person || 003285 || patient || 003220
 patients with Helicobacter pylori-chronic active gastritis || elderly person || 003285 || patient with infectious disease || 003269
 patients with high-grade primary gastric lymphoma || elderly person || 003285 || patient || 003220
-MALT || nutrient broth || 000360 || lymphatic system part || 000334
+MALT || animal tissue || 000196 || lymphatic system part || 000334
 CD20 || nutrient broth || 000360 || lymphocyte || 001623
 CD3 || nutrient broth || 000360 || lymphocyte || 001623
-MALT || nutrient broth || 000360 || lymphatic system part || 000334
+MALT || animal tissue || 000196 || lymphatic system part || 000334
 patients with chronic active gastritis || elderly person || 003285 || patient || 003220
 CD20-positive cells || phagocyte || 000801 || lymphocyte || 001623
 lymphocytic || nutrient broth || 000360 || lymphocyte || 001623
+B cells || phagocyte || 000801 || lymphocyte || 001623
+T cells || phagocyte || 000801 || lymphocyte || 001623
 lymphocytic || nutrient broth || 000360 || lymphocyte || 001623
 Lymphoepithelial || nutrient broth || 000360 || lymphatic system part || 000334
 Lymphoepithelial lesions || Intestinal mucosal lesion || 000471 || lesion || 000332
 gastric biopsies || stomach || 001792 || medical sample || 000110
+monoclonal B cells || phagocyte || 000801 || lymphocyte || 001623
 CD20 || nutrient broth || 000360 || lymphocyte || 001623
 CD3 || nutrient broth || 000360 || lymphocyte || 001623
 gastric MALT || stomach || 001792 || lymphatic system part || 000334
@@ -61,7 +65,7 @@ cystic fibrosis (CF) units || nutrient broth || 000360 || hospital environment |
 Sputum || nutrient broth || 000360 || sputum || 001335
 productive patients || elderly person || 003285 || patient || 003220
 regional adult CF units || adult human || 003245 || hospital environment || 000097
-regional paediatric CF units || patient || 003220 || hospital environment || 000097
+regional paediatric CF units || nutrient broth || 000360 || hospital environment || 000097
 paediatric || nutrient broth || 000360 || child || 003188
 dyspeptic patients || elderly person || 003285 || patient || 003220
 patients with chronic dyspepsia || elderly person || 003285 || patient || 003220
@@ -142,7 +146,7 @@ PMNs || nutrient broth || 000360 || granulocyte || 001134
 murine macrophages || murine || 002530 || macrophage || 002995
 murine dendritic cells || murine || 002530 || dendritic cell || 002785
 human monocyte-derived macrophages || human || 002488 || macrophage || 002995
-HMDM || nutrient broth || 000360 || macrophage || 002995
+HMDM || human || 002488 || macrophage || 002995
 HMDMs || nutrient broth || 000360 || macrophage || 002995
 human neutrophils || human || 002488 || neutrophil || 003004
 PMN || nutrient broth || 000360 || granulocyte || 001134
@@ -234,13 +238,13 @@ sera from patients with melioidosis || elderly person || 003285 || blood serum |
 patients with melioidosis || elderly person || 003285 || patient with infectious disease || 003269
 hyperimmune mouse || nutrient broth || 000360 || laboratory mice || 003211
 hyperimmune mouse sera || nutrient broth || 000360 || blood serum || 000524
-vacuum- packed cold-smoked salmon stored at 5 degrees C || patient with infectious disease || 003269 || cooled food || 001500
-modified-atmosphere-packed cold-smoked salmon stored at 5 degrees C || patient with infectious disease || 003269 || modified-atmosphere-packed food || 002140
+vacuum- packed cold-smoked salmon stored at 5 degrees C || cell || 000061 || cooled food || 001500
+modified-atmosphere-packed cold-smoked salmon stored at 5 degrees C || cell || 000061 || modified-atmosphere-packed food || 002140
 spoiled cold-smoked salmon || nutrient broth || 000360 || spoiled food || 000430
 vacuum-packed cold-smoked salmon || nutrient broth || 000360 || vacuum-packed food || 002300
 vacuum packages || nutrient broth || 000360 || vacuum-packed food || 002300
 vacuum-packed salmon || nutrient broth || 000360 || vacuum-packed food || 002300
-cold-smoked salmon stored at 5 degrees C || patient with infectious disease || 003269 || cooled food || 001500
+cold-smoked salmon stored at 5 degrees C || cell || 000061 || cooled food || 001500
 salmon || salmon || 003021 || salmon meat || 002593
 patients with active duodenal ulcer disease and H pylori infection || patient || 003220 || patient with infectious disease || 003269
 ulcer || ulcer || 000933 || duodenal ulcer || 001533
@@ -267,7 +271,7 @@ Casera cheese || cheese || 001480 || Valtellina Casera || 003483
 Formaggio di Fossa cheeses || cheese || 001480 || Formaggio di Fossa || 003473
 Scimudin cheeses || cheese || 001480 || Scimudin || 003522
 Casera cheese || cheese || 001480 || Valtellina Casera || 003483
-SB || nutrient broth || 000360 || agar || 000031
+SB || small intestine || 003303 || agar || 000031
 Casera cheeses || cheese || 001480 || Valtellina Casera || 003483
 Taleggio cheeses || cheese || 001480 || Taleggio || 003525
 Gorgonzola cheeses || cheese || 001480 || Gorgonzola || 003504
