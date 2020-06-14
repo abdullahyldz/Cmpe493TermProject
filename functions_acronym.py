@@ -1,4 +1,4 @@
-from functions_file_reading import read_lines_of_file
+from functions_file_io import read_lines_of_file
 
 def normalize_abbreviations(normalized_term, acronyms):
     term_words = normalized_term.split()
