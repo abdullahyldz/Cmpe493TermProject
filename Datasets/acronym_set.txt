@@ -2719,7 +2719,7 @@ MLK : 1) mixed lineage (or multilineage) kinase
 MLN : 1) mediastinal lymph node ; 2) mesenteric lymph nodes
 MLP : 1) muscle LIM-domain protein ; 2) multipotent lymphoid progenitor ; 3) multilineage progenitor (assay)
 MLR : mixed leukocyte reaction
-Mls, minor lymphocyte stimulating
+Mls : minor lymphocyte stimulating
 MLV : murine leukaemia virus
 MLVA : multi-locus VNTR analysis
 MM : 1) millimicro (i.e. : nano) (mm) ; 2) mother's mother ; 3) multiple myeloma
