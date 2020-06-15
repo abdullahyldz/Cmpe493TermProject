@@ -27,9 +27,10 @@ if __name__ == "__main__":
     # experiment_exact_match_plus_onto_biotope_plus_tfidf(train_set_term_mapping, dev_set_term_mapping, ontology_mapping)
     # experiment_exact_match_plus_onto_biotope_plus_jacard_ngrams(train_set_term_mapping, dev_set_term_mapping, ontology_mapping)
     # experiment_exact_match_plus_onto_biotope_plus_jacard_tokens(train_set_term_mapping, dev_set_term_mapping, ontology_mapping)
-    # experiment_exact_match_plus_onto_biotope_plus_jacard_average(train_set_term_mapping, dev_set_term_mapping, ontology_mapping)
+    experiment_exact_match_plus_onto_biotope_plus_jacard_average(train_set_term_mapping, dev_set_term_mapping, ontology_mapping)
     # experiment_exact_match_plus_onto_biotope_plus_tfidf_plus_onto_tfidf(train_set_term_mapping, dev_set_term_mapping, ontology_mapping)
 
+    # official evaluation tool
     test_set_a1_data = parse_a1_files(dataset_directory='./Datasets/test/')
     write_a2_files(dataset_directory='./Datasets/test/', a1_data=test_set_a1_data, train_set_term_mapping=train_set_term_mapping, ontology_mapping=ontology_mapping)
 
