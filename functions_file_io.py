@@ -1,6 +1,7 @@
 import os
 from collections import defaultdict
-from functions_experiment import evaluate_exact_match_plus_onto_biotope, evaluate_exact_match_plus_onto_biotope_plus_jacard_average
+from functions_search import search_exact_match_plus_onto_biotope, search_exact_match_plus_onto_biotope_plus_jacard_average
+
 
 def create_term_mapping_from_a1_and_a2_lines(a1_lines, a2_lines):
     term_mapping = dict()
@@ -128,7 +129,7 @@ def write_a2_files(dataset_directory, a1_data, train_set_term_mapping, ontology_
         output_file = open(os.path.join(dataset_directory, file_name + '.a2'), mode="a", encoding='utf8')
         NER_index = 1
         for term_number, term_name in term_dictionary.items():
-            output_file.write('N' + str(NER_index) + '\t' + 'OntoBiotope ' + 'Annotation:' + term_number + ' Referent:' + evaluate_exact_match_plus_onto_biotope_plus_jacard_average(train_set_term_mapping, ontology_mapping, term_name) + '\n')
+            output_file.write('N' + str(NER_index) + '\t' + 'OntoBiotope ' + 'Annotation:' + term_number + ' Referent:' + search_exact_match_plus_onto_biotope_plus_jacard_average(train_set_term_mapping, ontology_mapping, term_name) + '\n')
             NER_index += 1
         output_file.close()
 
