@@ -1,6 +1,6 @@
-
 import nltk
 from functions_text_processing import jaccard_similarity, jaccard_similarity_stemming
+
 
 def compareTags(term_name, postag_train_set, postag_ontology_set, train_set_term_mappings, ontology_mappings):
     if(term_name == 'patients with chronic active gastritis'):
@@ -24,6 +24,7 @@ def compareTags(term_name, postag_train_set, postag_ontology_set, train_set_term
 
     return best_similarity, best_candidate
 
+
 def createTags(train_set_term_mappings, ontology_mappings):
     best_similarity = 0
     best_candidate = None
@@ -31,6 +32,7 @@ def createTags(train_set_term_mappings, ontology_mappings):
     ontology_set_postags = [list(extract_NN(ontology_key)) for ontology_key in ontology_mappings.keys()]
 
     return train_set_postags, ontology_set_postags
+
 
 def extract_NN(sent):
     grammar = r"""
@@ -49,3 +51,20 @@ def extract_NN(sent):
     for tree in chunk.subtrees(filter=lambda t: t.label() == 'NP'):
         ne.add(' '.join([child[0] for child in tree.leaves()]))
     return ne
+
+
+def find_headword(term, nlp):
+    doc = nlp(term)
+    # print(term)
+    compound = ''
+    headword = ''
+    for token in doc:
+        #print(token.text, token.lemma_, token.pos_, token.tag_, token.dep_,
+         #     token.shape_, token.is_alpha, token.is_stop)
+        if token.dep_ == 'ROOT':
+            headword = token.text
+        elif token.dep_ == 'compound': #bazı durumlarda compound da yararlı olabilir
+            compound = token.text + ' '
+
+    return headword
+

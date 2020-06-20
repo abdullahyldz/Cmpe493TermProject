@@ -1,7 +1,8 @@
 from functions_tfidf import fit_tfidf_model, get_most_similar_term
 from functions_text_processing import get_most_similar_term_jacard_ngrams, get_most_similar_term_jacard_tokens,\
-    get_most_similar_term_jacard_average
+    get_most_similar_term_jacard_average, get_highest_jacard_average_score, get_most_similar_term_weighted_jacard_tokens
 from functions_huggingface import get_most_similar_term_biobert
+from functions_pos_tagging import compareTags, createTags,find_headword
 
 
 def experiment_exact_match(train_set_term_mapping, dev_set_term_mapping):
@@ -235,6 +236,7 @@ def experiment_exact_match_plus_onto_biotope_plus_biobert(train_set_term_mapping
     accuracy = true_count/total_count
     print(accuracy)
 
+
 def experiment_exact_match_plus_onto_biotope_plus_pos_tagger(train_set_term_mappings, dev_set_term_mappings, ontology_mappings):
     true_count = 0
     total_count = 0
@@ -271,6 +273,85 @@ def experiment_exact_match_plus_onto_biotope_plus_pos_tagger(train_set_term_mapp
     accuracy = true_count / total_count
     print(accuracy)
 
+
+def experiment_exact_match_ontology_root_match_plus_jacard_average(train_set_term_mappings, dev_set_term_mappings, ontology_mappings):
+    true_count = 0
+    total_count = 0
+    headword_match = 0
+    headword_match_true = 0
+    for term_name, referent_true in dev_set_term_mappings.items():
+        headword = find_headword(term_name)
+        total_count += 1
+        head_match = False
+        if term_name in ontology_mappings:
+            referent_hypothesis = ontology_mappings[term_name]
+        elif term_name in train_set_term_mappings:
+            referent_hypothesis = train_set_term_mappings[term_name]
+
+        else:
+            referent_hypothesis_whole, max_similarity_whole = get_highest_jacard_average_score(term_name, train_set_term_mappings, ontology_mappings)
+            referent_hypothesis_root, max_similarity_root = get_highest_jacard_average_score(headword,
+                                                                                               train_set_term_mappings,
+                                                                                               ontology_mappings)
+
+            if max_similarity_whole > max_similarity_root:
+                referent_hypothesis = referent_hypothesis_whole
+            elif max_similarity_root > max_similarity_whole:
+                referent_hypothesis = referent_hypothesis_root
+            else:
+                referent_hypothesis = referent_hypothesis_root
+
+        if referent_hypothesis == referent_true:
+            true_count += 1
+            if head_match:
+                headword_match_true += 1
+        else:
+
+            hypothesis_term_name = \
+            [term_name for term_name, term_id in ontology_mappings.items() if term_id == referent_hypothesis][0]
+            true_term_name = \
+            [term_name for term_name, term_id in ontology_mappings.items() if term_id == referent_true][0]
+            print('TermName: ' + term_name + '. Found: ' + hypothesis_term_name + '. Actual: ' + true_term_name)
+    accuracy = true_count / total_count
+    print(accuracy)
+
+
+def experiment_exact_match_ontology_plus_weighted_jacard_average(train_set_term_mappings, dev_set_term_mappings, ontology_mappings):
+    true_count = 0
+    total_count = 0
+    nlp = spacy.load("en_core_web_sm")
+    for term_name, referent_true in dev_set_term_mappings.items():
+        total_count += 1
+        if term_name in ontology_mappings:
+            referent_hypothesis = ontology_mappings[term_name]
+        elif term_name in train_set_term_mappings:
+            referent_hypothesis = train_set_term_mappings[term_name]
+        else:
+            headword = find_headword(term_name, nlp)
+            referent_hypothesis_train, max_similarity_train = get_most_similar_term_weighted_jacard_tokens(term_name, train_set_term_mappings, headword)
+            referent_hypothesis_onto, max_similarity_onto = get_most_similar_term_weighted_jacard_tokens(term_name, ontology_mappings, headword)
+
+            if max_similarity_train > max_similarity_onto:
+                referent_hypothesis = referent_hypothesis_train
+            elif max_similarity_onto > max_similarity_train:
+                referent_hypothesis = referent_hypothesis_onto
+            else:
+                referent_hypothesis = referent_hypothesis_onto
+
+        if referent_hypothesis == referent_true:
+            true_count += 1
+
+        else:
+
+            hypothesis_term_name = \
+            [term_name for term_name, term_id in ontology_mappings.items() if term_id == referent_hypothesis][0]
+            true_term_name = \
+            [term_name for term_name, term_id in ontology_mappings.items() if term_id == referent_true][0]
+            print('TermName: ' + term_name + '. Found: ' + hypothesis_term_name + '. Actual: ' + true_term_name)
+    accuracy = true_count / total_count
+    print(accuracy)
+
+
 def experiment_exact_match_plus_onto_biotope_plus_jacard_average_plus_rules(train_set_term_mappings, dev_set_term_mappings, ontology_mappings):
     true_count = 0
     total_count = 0
@@ -286,6 +367,10 @@ def experiment_exact_match_plus_onto_biotope_plus_jacard_average_plus_rules(trai
 
             if 'rind' in term_name:
                 referent_hypothesis = 'OBT:001481'
+            else:
+                last_word = term_name.split()[-1]
+                if 'units' in last_word:
+                    referent_hypothesis = 'OBT:000097'  # hospital environmeh
 
         if referent_hypothesis == referent_true:
                 true_count += 1
@@ -294,8 +379,6 @@ def experiment_exact_match_plus_onto_biotope_plus_jacard_average_plus_rules(trai
             true_term_name = [term_name for term_name, term_id in ontology_mappings.items() if term_id == referent_true][0]
             print('TermName: ' + term_name + '. Found: ' + hypothesis_term_name + '. Actual: ' + true_term_name)
 
-            if 'rind' in true_term_name:
-                referent_hypothesis = 'OBT:001481'
     accuracy = true_count/total_count
     print(accuracy)
 
