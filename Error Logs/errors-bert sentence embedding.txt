@@ -1,0 +1,221 @@
+TermName: gastric mucosal-associated lymphoid tissue. Found: intestinal mucosa. Actual: lymphatic system part
+TermName: gastric mucosal. Found: duodenum. Actual: gastric mucosa
+TermName: MALT. Found: intensive care unit. Actual: lymphatic system part
+TermName: monoclonal B cells. Found: blood serum. Actual: lymphocyte
+TermName: gastric MALT. Found: rumen. Actual: lymphatic system part
+TermName: patients with atypical lymphoid infiltrates. Found: patient with infectious disease. Actual: patient
+TermName: patients with Helicobacter pylori-chronic active gastritis. Found: patient. Actual: patient with infectious disease
+TermName: Lymphoepithelial. Found: alveolar epithelium. Actual: epithelium
+TermName: gastric biopsies. Found: secretion. Actual: medical sample
+TermName: chicken nugget processing plant. Found: food dicing machine. Actual: meat industry
+TermName: chicken. Found: chicken. Actual: chicken meat
+TermName: chicken nugget. Found: rabbit tick. Actual: nugget
+TermName: food handlers. Found: traveller luggage. Actual: worker
+TermName: selective agars. Found: antibiotic-containing media. Actual: agar
+TermName: PALCAM. Found: viennoiserie. Actual: agar
+TermName: LPM. Found: cell. Actual: agar
+TermName: HCLA. Found: escarole. Actual: agar
+TermName: food handler. Found: veterinarian. Actual: worker
+TermName: H. pylori-negative subjects. Found: patient. Actual: healthy person
+TermName: H. pylori-infected monkeys. Found: patient with infectious disease. Actual: laboratory animal
+TermName: control monkeys. Found: cow. Actual: laboratory animal
+TermName: children. Found: child. Actual: patient with infectious disease
+TermName: young Japanese gastric cancer patients. Found: child. Actual: patient
+TermName: control group. Found: non-immune serum. Actual: child
+TermName: gastroenteritis patients. Found: skin wound. Actual: patient with infectious disease
+TermName: healthy carriers. Found: cow. Actual: healthy person
+TermName: fish samples. Found: blood. Actual: fish
+TermName: patients suffering from rickettsial disease of different degrees of severity. Found: patient. Actual: patient with infectious disease
+TermName: Culex pipiens molestus. Found: algae. Actual: mosquito
+TermName: paediatric cystic fibrosis units. Found: patient. Actual: hospital environment
+TermName: paediatric. Found: medical outfit. Actual: child
+TermName: adult cystic fibrosis units. Found: pistachio and primary derivative thereof. Actual: hospital environment
+TermName: cystic fibrosis (CF) units. Found: lupin beverage. Actual: hospital environment
+TermName: productive patients. Found: progeny. Actual: patient
+TermName: regional adult CF units. Found: zinc factory. Actual: hospital environment
+TermName: regional paediatric CF units. Found: clinic. Actual: hospital environment
+TermName: patients. Found: patient. Actual: patient with infectious disease
+TermName: patient. Found: patient with infectious disease. Actual: patient
+TermName: patients with chronic dyspepsia. Found: patient with infectious disease. Actual: patient
+TermName: Gastric biopsies. Found: gastrointestinal tract part. Actual: medical sample
+TermName: Patients with H. pylori infection. Found: patient. Actual: patient with infectious disease
+TermName: neonatal. Found: patient with infectious disease. Actual: newborn infant
+TermName: placenta of a 38-year-old secondary recurrent aborter. Found: vaginal abscess. Actual: placenta
+TermName: 38-year-old secondary recurrent aborter. Found: vaginal abscess. Actual: pregnant woman
+TermName: children less than five years of age. Found: patient. Actual: child
+TermName: study population. Found: slaughter plant. Actual: child
+TermName: children with diarrhea. Found: patient with infectious disease. Actual: ill person
+TermName: age-matched healthy controls. Found: patient. Actual: healthy person
+TermName: children less than two years of age. Found: patient. Actual: baby
+TermName: Children attending the hospitals. Found: patient. Actual: child
+TermName: Watery stool. Found: skin papule. Actual: feces
+TermName: mucous stool. Found: mucocutaneous surface. Actual: feces
+TermName: mucous. Found: rumen. Actual: mucus
+TermName: stools. Found: duodenal ulcer. Actual: feces
+TermName: piped water. Found: bottled water. Actual: drinking water
+TermName: mothers. Found: offspring. Actual: mother
+TermName: fresh water. Found: saline water. Actual: freshwater
+TermName: fresh water supply. Found: fresh animal manure. Actual: drinking water supply
+TermName: rich medium. Found: soda lake. Actual: experimental medium
+TermName: fleas. Found: gizzard. Actual: flea
+TermName: Adoratopsylla antiquorum antiquorum. Found: Achillea millefolium. Actual: flea
+TermName: Ctenocephalides felis felis. Found: Achillea millefolium. Actual: flea
+TermName: Polygenis atopus. Found: hairspray. Actual: flea
+TermName: Polygenis rimatus. Found: marine fish. Actual: flea
+TermName: Polygenis roberti roberti. Found: tortoise. Actual: flea
+TermName: Polygenis tripus. Found: Euprymna scolopes. Actual: flea
+TermName: Rhopalopsyllus lugubris. Found: marine fish. Actual: flea
+TermName: Rhopalopsyllus lutzi lutzi. Found: Achillea millefolium. Actual: flea
+TermName: Amblyomma aureolatum. Found: Aeschynomene indica. Actual: tick
+TermName: Amblyomma cajennense. Found: Achillea millefolium. Actual: tick
+TermName: Amblyomma dubitatum. Found: Achillea millefolium. Actual: tick
+TermName: Ixodes loricatus. Found: Ornithodoros turicatae. Actual: tick
+TermName: Rhipicephalus sanguineus. Found: Euprymna scolopes. Actual: brown dog tick
+TermName: cats. Found: pig. Actual: cat
+TermName: animal blood. Found: animal blood. Actual: blood
+TermName: human blood. Found: animal blood. Actual: blood
+TermName: animal sera. Found: animal liver. Actual: blood serum
+TermName: human sera. Found: bovine serum. Actual: blood serum
+TermName: opossum sera. Found: louse. Actual: experimental medium
+TermName: dog sera. Found: cattle-dipping vat. Actual: blood serum
+TermName: horse sera. Found: bovine serum. Actual: experimental medium
+TermName: sera. Found: lenticel. Actual: experimental medium
+TermName: LTQ Orbitrap high-resolution mass spectrometer. Found: microwave oven. Actual: laboratory equipment
+TermName: mixtures of pure compounds and uniformly 13C-labeled cell extracts. Found: patient with infectious disease. Actual: experimental medium
+TermName: 13C-labeled cell. Found: experimental medium. Actual: cell
+TermName: LTQ Obitrap. Found: microwave oven. Actual: laboratory equipment
+TermName: monocyte-like THP-1 cells. Found: macrophage. Actual: cell culture
+TermName: monocytes. Found: neutrophil. Actual: monocyte
+TermName: macrophages. Found: neutrophil. Actual: macrophage
+TermName: cell. Found: macrophage. Actual: leukocyte
+TermName: human monocyte-like THP-1 cells. Found: macrophage. Actual: monocyte
+TermName: infected monocytes. Found: glial cell. Actual: monocyte
+TermName: Bile. Found: elbow. Actual: bile
+TermName: lactose-free M17 medium supplemented with glucose only (GM17). Found: cheese starter culture. Actual: experimental medium
+TermName: lactose-free M17 medium supplemented with lactose only (LM17). Found: dairy starter culture. Actual: experimental medium
+TermName: GM17 medium. Found: agar. Actual: experimental medium
+TermName: LM17 medium. Found: agar. Actual: experimental medium
+TermName: partridges. Found: sugar. Actual: partridge
+TermName: Perdix perdix. Found: Aeschynomene indica. Actual: partridge
+TermName: commercially reared partridges. Found: pasteurized food. Actual: livestock
+TermName: Cloacal swabs of partridges. Found: experimental medium. Actual: rectal swab
+TermName: male birds. Found: laboratory mice. Actual: livestock
+TermName: female birds. Found: goose meat. Actual: partridge
+TermName: game bird. Found: pet bird. Actual: bird
+TermName: game bird farm. Found: poultry farm. Actual: animal farm
+TermName: cloacal swabs. Found: experimental medium. Actual: rectal swab
+TermName: Adult partridges. Found: Munster. Actual: partridge
+TermName: younger ones. Found: lean dough. Actual: livestock
+TermName: game birds. Found: bird meat. Actual: bird
+TermName: human being. Found: human body. Actual: human
+TermName: animal species. Found: pet bird. Actual: animal
+TermName: Neutrophils. Found: lymphocyte. Actual: neutrophil
+TermName: polymorphonuclear leukocytes. Found: neutrophil. Actual: granulocyte
+TermName: PMNs. Found: dendritic cell. Actual: granulocyte
+TermName: murine macrophages. Found: monocyte. Actual: macrophage
+TermName: human monocyte-derived macrophages. Found: monocyte. Actual: macrophage
+TermName: HMDM. Found: seafood and seafood product. Actual: macrophage
+TermName: HMDMs. Found: cheese. Actual: macrophage
+TermName: PMN. Found: nursing home. Actual: granulocyte
+TermName: human PMNs. Found: neutrophil. Actual: granulocyte
+TermName: PMN cell. Found: neutrophil. Actual: granulocyte
+TermName: probiotic fermented milk beverage. Found: fermented shrimp paste. Actual: fermented beverage
+TermName: intestinal environment of healthy individuals with soft stools. Found: bird and reptile GIT part. Actual: intestine
+TermName: healthy individuals with soft stools. Found: patient. Actual: healthy person
+TermName: soft stools. Found: duodenal ulcer. Actual: feces
+TermName: fermented milk beverage. Found: fermented shrimp paste. Actual: fermented beverage
+TermName: bottle. Found: bottle. Actual: probiotic food
+TermName: probiotics. Found: probiotic. Actual: probiotic food
+TermName: healthy adults. Found: healthy person. Actual: adult human
+TermName: probiotic. Found: probiotic. Actual: probiotic food
+TermName: water content of the stools. Found: bird and reptile GIT part. Actual: body fluid
+TermName: probiotic group. Found: probiotic feed. Actual: adult human
+TermName: placebo group. Found: probiotic feed. Actual: adult human
+TermName: probiotic groups. Found: probiotic feed. Actual: adult human
+TermName: placebo groups. Found: cheese starter culture. Actual: adult human
+TermName: healthy individuals with soft stool. Found: fish. Actual: healthy person
+TermName: soft stool. Found: scalded food. Actual: feces
+TermName: perianal. Found: periphyton. Actual: anus
+TermName: perianal ulceration. Found: duodenal ulcer. Actual: ulcer
+TermName: HIV-positive men who have sex with men. Found: immunodeficient person. Actual: man
+TermName: men. Found: vascular. Actual: man
+TermName: MSM. Found: nursing home. Actual: ill person
+TermName: Patients. Found: patient. Actual: patient with infectious disease
+TermName: rectal. Found: nasopharynx. Actual: rectum
+TermName: MSM attending sexually transmitted infection clinics. Found: child. Actual: patient with infectious disease
+TermName: sexually transmitted infection clinics. Found: latex processing factory. Actual: clinic
+TermName: anorectal. Found: gastric acid. Actual: rectum
+TermName: HIV-infected patients presenting with isolated perianal ulcer disease. Found: patient. Actual: patient with infectious disease
+TermName: perianal ulcer. Found: duodenal ulcer. Actual: ulcer
+TermName: MSM with proctitis. Found: granuloma. Actual: ill person
+TermName: MSM with perianal ulcer disease. Found: lesion. Actual: ill person
+TermName: human population. Found: human body. Actual: human
+TermName: female mouse model of genital tract chlamydia infection. Found: human Bartholin abscess. Actual: laboratory mice
+TermName: oviduct. Found: vagina. Actual: urogenital tract part
+TermName: mucosal. Found: intestinal mucosa. Actual: mucosal tissue
+TermName: mice. Found: mouse. Actual: laboratory mice
+TermName: intranasal. Found: cloaca. Actual: nose
+TermName: TLR2-deficient mice. Found: laboratory mice. Actual: female animal
+TermName: world's oceans. Found: extreme environment. Actual: marine water
+TermName: bacterial flora. Found: mineral soil. Actual: microflora
+TermName: marine organisms. Found: marine environment. Actual: living organism
+TermName: Penicillium-sensitive atopic sera. Found: Aeschynomene indica. Actual: experimental medium
+TermName: aerosolized. Found: methanogenic. Actual: aerosol
+TermName: human macrophages. Found: monocyte. Actual: macrophage
+TermName: natural fermented koumiss. Found: fermented cheese. Actual: kumis
+TermName: cellophane membrane disks. Found: activated carbon fiber felt. Actual: laboratory equipment
+TermName: urine of leprosy patients. Found: aquatic sediment. Actual: urine
+TermName: leprosy patients. Found: patient. Actual: patient with infectious disease
+TermName: urine of LL patients. Found: microflora. Actual: urine
+TermName: LL patients. Found: patient. Actual: patient with infectious disease
+TermName: nitrocellulose paper. Found: chopstick. Actual: experimental medium
+TermName: pulmonary. Found: breast. Actual: lung
+TermName: Tuberculosis Reference Laboratory. Found: sewage disposal plant. Actual: laboratory
+TermName: superficial abscesses. Found: duodenal ulcer. Actual: abscess
+TermName: sera from patients with different clinical spectra and with other infections. Found: animal part. Actual: blood serum
+TermName: sera from patients with melioidosis. Found: patient with infectious disease. Actual: blood serum
+TermName: hyperimmune mouse. Found: animal with disease. Actual: laboratory mice
+TermName: hyperimmune mouse sera. Found: non-immune serum. Actual: blood serum
+TermName: vacuum- packed cold-smoked salmon stored at 5 degrees C. Found: mercury-enriched soil. Actual: salmon meat
+TermName: modified-atmosphere-packed cold-smoked salmon stored at 5 degrees C. Found: modified-atmosphere-packed food. Actual: smoked food
+TermName: spoiled cold-smoked salmon. Found: smear ripened cheese. Actual: salmon meat
+TermName: vacuum-packed cold-smoked salmon. Found: smear ripened cheese. Actual: smoked food
+TermName: Gram-negative flora. Found: smear ripened cheese. Actual: microflora
+TermName: vacuum packages. Found: respiratory therapy equipment. Actual: vacuum-packed food
+TermName: vacuum-packed salmon. Found: vacuum-packed food. Actual: smoked food
+TermName: cold-smoked salmon stored at 5 degrees C. Found: mercury-enriched soil. Actual: salmon meat
+TermName: salmon. Found: salmon. Actual: smoked food
+TermName: ulcer. Found: duodenal ulcer. Actual: ulcer
+TermName: Maasdammer. Found: Limburger. Actual: semi soft cheese
+TermName: Swiss-type cheeses. Found: Livarot. Actual: ripened cheese
+TermName: Gorgonzola cheeses. Found: Livarot. Actual: Gorgonzola
+TermName: Taleggio cheeses. Found: semi soft cheese. Actual: Taleggio
+TermName: Formaggio di Fossa cheeses. Found: smear ripened cheese. Actual: Formaggio di Fossa
+TermName: Casera. Found: chhena. Actual: Valtellina Casera
+TermName: soft smear cheeses. Found: soft cheese. Actual: smear ripened cheese
+TermName: Casera cheese. Found: turnip juice. Actual: Valtellina Casera
+TermName: Casera cheeses. Found: cheese. Actual: Valtellina Casera
+TermName: Scimudin cheeses. Found: Livarot. Actual: Scimudin
+TermName: community of Staphylococcus and micrococci-corynebacteria groups. Found: marine and hypersaline microbial mat. Actual: microflora
+TermName: SB. Found: nursing home. Actual: agar
+TermName: Gorgonzola surfaces. Found: quail meat. Actual: surface of cheese
+TermName: Scimudin surfaces. Found: Livarot. Actual: surface of cheese
+TermName: Taleggio surfaces. Found: Taleggio. Actual: surface of cheese
+TermName: Scimudin cheese. Found: Livarot. Actual: Scimudin
+TermName: Gorgonzola cheese. Found: Livarot. Actual: Gorgonzola
+TermName: Taleggio  cheeses. Found: semi soft cheese. Actual: Taleggio
+TermName: white mould rind. Found: fruit rind. Actual: cheese rind
+TermName: rind. Found: ewe. Actual: cheese rind
+TermName: Gorgonzola cheese  surfaces. Found: Munster. Actual: surface of cheese
+TermName: Fontina cheese surface. Found: cheese. Actual: surface of cheese
+TermName: Fontina cheese. Found: Livarot. Actual: Fontina
+TermName: Gorgonzola rind. Found: palagonite rind. Actual: cheese rind
+TermName: Taleggio rind. Found: cantaloupe rind. Actual: cheese rind
+TermName: Formaggio di Fossa cheese. Found: Livarot. Actual: Formaggio di Fossa
+TermName: fermented fish. Found: fermented meat. Actual: fermented fish product
+TermName: Fontina rind. Found: cantaloupe rind. Actual: cheese rind
+TermName: Gorgonzola rinds. Found: Euprymna scolopes. Actual: cheese rind
+TermName: Formaggio di  Fossa cheese. Found: Livarot. Actual: Formaggio di Fossa
+TermName: polar seawater. Found: polar sea ice. Actual: marine water
+
+0.3706896551724138

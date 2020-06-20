@@ -3,6 +3,7 @@ string matching harici? pronto?
 	o) head word'lerin ağırlıkları arttırılabilir, rule based aynı term'e atamama yapılabilir
 	o) ontology distance, pronto
 	o) word embedding (biomedical domain)
+	o) head word s takısını silme
 
 exact match'te vs bir şey bulunamazsa ne yapılacak?
 	o) satır hiç konulmayabilir

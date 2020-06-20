@@ -132,4 +132,3 @@ def write_a2_files(dataset_directory, a1_data, train_set_term_mapping, ontology_
             output_file.write('N' + str(NER_index) + '\t' + 'OntoBiotope ' + 'Annotation:' + term_number + ' Referent:' + search_exact_match_plus_onto_biotope_plus_jacard_average(train_set_term_mapping, ontology_mapping, term_name) + '\n')
             NER_index += 1
         output_file.close()
-
