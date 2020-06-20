@@ -1,7 +1,8 @@
 import nltk
 from nltk.corpus import stopwords
 from nltk.util import ngrams
-
+from nltk.stem import PorterStemmer
+ps = PorterStemmer()
 
 def lemmatize_term(term):
     words = term.split()
@@ -33,6 +34,17 @@ def jaccard_similarity(list1, list2):
         return 0
     return float(intersection) / union
 
+def jaccard_similarity_stemming(list1, list2):
+    #TODO stemming before comparison
+    list1 = [ps.stem(elem) for elem in list1]
+    list2 = [ps.stem(elem) for elem in list2]
+
+    intersection = len(list(set(list1).intersection(list2)))
+    union = (len(list1) + len(list2)) - intersection
+
+    if union == 0:
+        return 0
+    return float(intersection) / union
 
 def get_most_similar_term_jacard_ngrams(term_name, term_mappings):
     ngram_count = 2
