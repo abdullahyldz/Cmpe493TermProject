@@ -236,4 +236,31 @@ def experiment_exact_match_plus_onto_biotope_plus_biobert(train_set_term_mapping
     print(accuracy)
 
 
+def experiment_exact_match_plus_onto_biotope_plus_jacard_average_plus_rules(train_set_term_mappings, dev_set_term_mappings, ontology_mappings):
+    true_count = 0
+    total_count = 0
+
+    merged_term_name_mappings = {**train_set_term_mappings, **ontology_mappings}
+
+    for term_name, referent_true in dev_set_term_mappings.items():
+        total_count += 1
+        if term_name in merged_term_name_mappings:
+            referent_hypothesis = merged_term_name_mappings[term_name]
+        else:
+            referent_hypothesis, max_similarity, most_similar_term_name = get_most_similar_term_jacard_average(term_name, merged_term_name_mappings)
+
+            if 'rind' in term_name:
+                referent_hypothesis = 'OBT:001481'
+
+        if referent_hypothesis == referent_true:
+                true_count += 1
+        else:
+            hypothesis_term_name = [term_name for term_name, term_id in ontology_mappings.items() if term_id == referent_hypothesis][0]
+            true_term_name = [term_name for term_name, term_id in ontology_mappings.items() if term_id == referent_true][0]
+            print('TermName: ' + term_name + '. Found: ' + hypothesis_term_name + '. Actual: ' + true_term_name)
+
+            if 'rind' in true_term_name:
+                referent_hypothesis = 'OBT:001481'
+    accuracy = true_count/total_count
+    print(accuracy)
 

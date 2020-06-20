@@ -89,6 +89,6 @@ def get_most_similar_term_jacard_average(term_name, term_mappings):
             max_similarity = jacard_similarity_average
 
     most_similar_term_id = term_mappings[most_similar_term_known]
-    return most_similar_term_id, max_similarity
+    return most_similar_term_id, max_similarity, most_similar_term_known
 
 
