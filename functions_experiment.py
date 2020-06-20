@@ -366,11 +366,23 @@ def experiment_exact_match_plus_onto_biotope_plus_jacard_average_plus_rules(trai
             referent_hypothesis, max_similarity, most_similar_term_name = get_most_similar_term_jacard_average(term_name, merged_term_name_mappings)
 
             if 'rind' in term_name:
-                referent_hypothesis = 'OBT:001481'
+                referent_hypothesis = 'OBT:001481'  # cheese rind
+            elif 'Polygenis' in term_name or 'Rhopalopsyllus' in term_name:
+                referent_hypothesis = 'OBT:002034'  # flea
+            elif 'Amblyomma' in term_name:
+                referent_hypothesis = 'OBT:001821'  # tick
+            elif 'sera' in term_name:
+                referent_hypothesis = 'OBT:000524'  # blood serum
+            elif 'PMN' in term_name:
+                referent_hypothesis = 'OBT:001134'  # granulocyte
+            elif 'patients with' in term_name:
+                referent_hypothesis = 'OBT:003269'  # patient with infectious disease
             else:
                 last_word = term_name.split()[-1]
                 if 'units' in last_word:
-                    referent_hypothesis = 'OBT:000097'  # hospital environmeh
+                    referent_hypothesis = 'OBT:000097'  # hospital environment
+                elif 'surfaces' in last_word:
+                    referent_hypothesis = 'OBT:001341'  # surface of cheese
 
         if referent_hypothesis == referent_true:
                 true_count += 1
