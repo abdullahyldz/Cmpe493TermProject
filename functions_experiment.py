@@ -235,6 +235,41 @@ def experiment_exact_match_plus_onto_biotope_plus_biobert(train_set_term_mapping
     accuracy = true_count/total_count
     print(accuracy)
 
+def experiment_exact_match_plus_onto_biotope_plus_pos_tagger(train_set_term_mappings, dev_set_term_mappings, ontology_mappings):
+    true_count = 0
+    total_count = 0
+    ################################################################################
+    train_postags, ontology_postags = createTags(train_set_term_mappings, ontology_mappings)
+    for term_name, referent_true in dev_set_term_mappings.items():
+        total_count += 1
+        if term_name in train_set_term_mappings:
+            referent_hypothesis = train_set_term_mappings[term_name]
+        elif term_name in ontology_mappings:
+            referent_hypothesis = ontology_mappings[term_name]
+        else:
+            referent_hypothesis_train, max_similarity_train = get_most_similar_term_jacard_ngrams(term_name,train_set_term_mappings)
+            referent_hypothesis_ontology, max_similarity_ontology = get_most_similar_term_jacard_ngrams(term_name,ontology_mappings)
+            if max_similarity_train > max_similarity_ontology:
+                referent_hypothesis = referent_hypothesis_train
+            elif max_similarity_ontology > max_similarity_train:
+                referent_hypothesis = referent_hypothesis_ontology
+            else:
+                referent_hypothesis = referent_hypothesis_ontology
+            if(max(max_similarity_ontology, max_similarity_train)<=0.23):
+                best_similarity, best_candidate = compareTags(term_name, train_postags, ontology_postags,list(train_set_term_mappings.keys()),list(ontology_mappings.keys()))
+                if (best_candidate!=None and  best_candidate in ontology_mappings.keys()):
+                    referent_hypothesis = ontology_mappings[best_candidate]
+
+        if referent_hypothesis == referent_true:
+            true_count += 1
+        else:
+            if(term_name == 'patients with high-grade primary gastric lymphoma'):
+                print()
+            hypothesis_term_name = [term_name for term_name, term_id in ontology_mappings.items() if term_id == referent_hypothesis][0]
+            true_term_name = [term_name for term_name, term_id in ontology_mappings.items() if term_id == referent_true][0]
+            print('TermName: ' + term_name + '. Found: ' + hypothesis_term_name + '. Actual: ' + true_term_name)
+    accuracy = true_count / total_count
+    print(accuracy)
 
 def experiment_exact_match_plus_onto_biotope_plus_jacard_average_plus_rules(train_set_term_mappings, dev_set_term_mappings, ontology_mappings):
     true_count = 0
