@@ -31,7 +31,7 @@ exact_match_plus_onto_biotope_plus_jacard_ngrams
 	habitats 0.7047
 	habitats (exact) 0.5784
 	habitats (new in dev) 0.5154
-	habitats (new in test) 
+	habitats (new in test) 0.000
 	habitats (only unique form normalization) 0.6168
 
 
