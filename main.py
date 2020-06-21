@@ -8,7 +8,8 @@ from functions_experiment import experiment_exact_match, experiment_exact_match_
     experiment_exact_match_plus_onto_biotope_plus_jacard_ngrams, \
     experiment_exact_match_plus_onto_biotope_plus_jacard_tokens, \
     experiment_exact_match_plus_onto_biotope_plus_jacard_average, \
-    experiment_exact_match_plus_onto_biotope_plus_jacard_average_plus_rules
+    experiment_exact_match_plus_onto_biotope_plus_jacard_average_plus_rules, \
+    experiment_exact_match_plus_onto_biotope_plus_plus_rules_plus_word_embedding_by_mean
 
 from functions_huggingface import read_bert_term_name_embeddings, get_bert_model_and_tokenizer
 import sys
@@ -45,7 +46,10 @@ if __name__ == "__main__":
 
     # experiment_exact_match_plus_onto_biotope_plus_jacard_average(train_set_term_mapping, dev_set_term_mapping, ontology_mapping)
 
-    experiment_exact_match_plus_onto_biotope_plus_jacard_average_plus_rules(train_set_term_mapping, dev_set_term_mapping, ontology_mapping)
+    # experiment_exact_match_plus_onto_biotope_plus_jacard_average_plus_rules(train_set_term_mapping, dev_set_term_mapping, ontology_mapping)
+
+    experiment_exact_match_plus_onto_biotope_plus_plus_rules_plus_word_embedding_by_mean(train_set_term_mapping,
+                                                                                         dev_set_term_mapping, ontology_mapping)
 
 
     # official evaluation tool
