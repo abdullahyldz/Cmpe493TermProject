@@ -1,6 +1,11 @@
 import os
 from collections import defaultdict
-from functions_search import search_exact_match_plus_onto_biotope, search_exact_match_plus_onto_biotope_plus_jacard_average
+from functions_search import search_exact_match, search_exact_match_plus_onto_biotope, \
+    search_exact_match_plus_onto_biotope_plus_jacard_ngrams, search_exact_match_plus_onto_biotope_plus_jacard_tokens, \
+    search_exact_match_plus_onto_biotope_plus_jacard_average, search_exact_match_plus_onto_biotope_plus_biobert, \
+    search_exact_match_plus_onto_biotope_plus_jacard_average_plus_rules, \
+    search_exact_match_plus_onto_biotope_plus_plus_rules_plus_word_embedding_by_mean
+from functions_word_embedding import get_bio_nlp_word_vec_model
 
 
 def create_term_mapping_from_a1_and_a2_lines(a1_lines, a2_lines):
@@ -127,8 +132,76 @@ def parse_a1_files(dataset_directory):
 def write_a2_files(dataset_directory, a1_data, train_set_term_mapping, ontology_mapping):
     for file_name, term_dictionary in a1_data.items():
         output_file = open(os.path.join(dataset_directory, file_name + '.a2'), mode="a", encoding='utf8')
-        NER_index = 1
+        NER_index = 0
         for term_number, term_name in term_dictionary.items():
-            output_file.write('N' + str(NER_index) + '\t' + 'OntoBiotope ' + 'Annotation:' + term_number + ' Referent:' + search_exact_match_plus_onto_biotope_plus_jacard_average(train_set_term_mapping, ontology_mapping, term_name) + '\n')
             NER_index += 1
+            referent_hypothesis = search_exact_match_plus_onto_biotope_plus_jacard_average(train_set_term_mapping, ontology_mapping, term_name)
+            if referent_hypothesis != '':
+                output_file.write('N' + str(NER_index) + '\t' + 'OntoBiotope ' + 'Annotation:' + term_number + ' Referent:' + referent_hypothesis + '\n')
+            else:
+                continue
+        output_file.close()
+
+
+def write_a2_files_biobert(dataset_directory, a1_data, train_set_term_mapping, ontology_mapping, train_set_term_name_embeddings,
+                                                          ontology_term_name_embeddings,
+                                                          bert_model, bert_tokenizer):
+    for file_name, term_dictionary in a1_data.items():
+        output_file = open(os.path.join(dataset_directory, file_name + '.a2'), mode="a", encoding='utf8')
+        NER_index = 0
+        for term_number, term_name in term_dictionary.items():
+            NER_index += 1
+            referent_hypothesis = search_exact_match_plus_onto_biotope_plus_biobert(train_set_term_mapping, term_name,
+                                                          ontology_mapping,
+                                                          train_set_term_name_embeddings,
+                                                          ontology_term_name_embeddings,
+                                                          bert_model, bert_tokenizer)
+            if referent_hypothesis != '':
+                output_file.write('N' + str(NER_index) + '\t' + 'OntoBiotope ' + 'Annotation:' + term_number + ' Referent:' + referent_hypothesis + '\n')
+            else:
+                continue
+        output_file.close()
+
+
+def write_a2_files_exact_match_plus_onto_biotope_plus_jacard_average_plus_rules(dataset_directory, a1_data, train_set_term_mapping, ontology_mapping):
+    for file_name, term_dictionary in a1_data.items():
+        output_file = open(os.path.join(dataset_directory, file_name + '.a2'), mode="a", encoding='utf8')
+        NER_index = 0
+        for term_number, term_name in term_dictionary.items():
+            NER_index += 1
+            referent_hypothesis = search_exact_match_plus_onto_biotope_plus_jacard_average_plus_rules(train_set_term_mapping, ontology_mapping, term_name)
+            if referent_hypothesis != '':
+                output_file.write('N' + str(NER_index) + '\t' + 'OntoBiotope ' + 'Annotation:' + term_number + ' Referent:' + referent_hypothesis + '\n')
+            else:
+                continue
+        output_file.close()
+
+
+def write_a2_files_exact_match_plus_onto_biotope_plus_plus_rules_plus_word_embedding_by_mean(dataset_directory, a1_data, train_set_term_mapping, ontology_mapping):
+    word_embedding_model = get_bio_nlp_word_vec_model()
+    for file_name, term_dictionary in a1_data.items():
+        output_file = open(os.path.join(dataset_directory, file_name + '.a2'), mode="a", encoding='utf8')
+        NER_index = 0
+        for term_number, term_name in term_dictionary.items():
+            NER_index += 1
+            referent_hypothesis = search_exact_match_plus_onto_biotope_plus_plus_rules_plus_word_embedding_by_mean(train_set_term_mapping, ontology_mapping, term_name, word_embedding_model)
+            if referent_hypothesis != '':
+                output_file.write('N' + str(NER_index) + '\t' + 'OntoBiotope ' + 'Annotation:' + term_number + ' Referent:' + referent_hypothesis + '\n')
+            else:
+                continue
+        output_file.close()
+
+
+def write_a2_files_exact_match_plus_onto_biotope_plus_plus_rules_plus_word_embedding_by_mean_threshold(dataset_directory, a1_data, train_set_term_mapping, ontology_mapping):
+    word_embedding_model = get_bio_nlp_word_vec_model()
+    for file_name, term_dictionary in a1_data.items():
+        output_file = open(os.path.join(dataset_directory, file_name + '.a2'), mode="a", encoding='utf8')
+        NER_index = 0
+        for term_number, term_name in term_dictionary.items():
+            NER_index += 1
+            referent_hypothesis = search_exact_match_plus_onto_biotope_plus_plus_rules_plus_word_embedding_by_mean(train_set_term_mapping, ontology_mapping, term_name, word_embedding_model)
+            if referent_hypothesis != '':
+                output_file.write('N' + str(NER_index) + '\t' + 'OntoBiotope ' + 'Annotation:' + term_number + ' Referent:' + referent_hypothesis + '\n')
+            else:
+                continue
         output_file.close()

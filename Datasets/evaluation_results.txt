@@ -1,0 +1,95 @@
+search_exact_match
+	main scoring 0.1275
+	habitats 0.2451
+	habitats (exact) 0.2235
+	habitats (new in dev) 0.000
+	habitats (new in test) NA
+	habitats (only unique form normalization) 0.1374
+	
+	
+	
+search_exact_match_plus_onto_biotope
+	main scoring 0.1908
+	habitats 0.3669
+	habitats (exact) 0.3448
+	habitats (new in dev) 0.2597
+	habitats (new in test) 0.000
+	habitats (only unique form normalization) 0.2112
+
+
+exact_match_plus_onto_biotope_plus_jacard_tokens
+	main scoring 0.3380
+	habitats 0.6500
+	habitats (exact) 0.5320
+	habitats (new in dev) 0.4469
+	habitats (new in test) 0.000
+	habitats (only unique form normalization) 0.5538	
+	
+
+exact_match_plus_onto_biotope_plus_jacard_ngrams
+	main scoring 0.3665
+	habitats 0.7047
+	habitats (exact) 0.5784
+	habitats (new in dev) 0.5154
+	habitats (new in test) 
+	habitats (only unique form normalization) 0.6168
+
+
+exact_match_plus_onto_biotope_plus_jacard_average
+	main scoring 0.3819
+	habitats 0.7344
+	habitats (exact) 0.6121
+	habitats (new in dev) 0.5169
+	habitats (new in test) 0.000
+	habitats (only unique form normalization) 0.6547
+
+
+exact_match_plus_onto_biotope_plus_biobert
+	main scoring 0.3409
+	habitats 0.6555
+	habitats (exact) 0.4639
+	habitats (new in dev) 0.3135
+	habitats (new in test) 0.000
+	habitats (only unique form normalization) 0.5908
+
+
+exact_match_plus_onto_biotope_plus_jacard_average_plus_rules
+	main scoring 0.4071
+	habitats 0.7829
+	habitats (exact) 0.6651
+	habitats (new in dev) 0.6202
+	habitats (new in test) 0.000
+	habitats (only unique form normalization) 0.7310
+
+
+exact_match_plus_onto_biotope_plus_plus_rules_plus_word_embedding_by_mean
+	main scoring 0.4281
+	habitats 0.8233
+	habitats (exact) 0.6951
+	habitats (new in dev) 0.6443
+	habitats (new in test) 0.0000
+	habitats (only unique form normalization) 0.7732
+
+
+exact_match_plus_onto_biotope_plus_plus_rules_plus_word_embedding_by_mean_threshold
+	main scoring 0.4276
+	habitats 0.8222
+	habitats (exact) 0.6951
+	habitats (new in dev) 0.6443
+	habitats (new in test) 0.000
+	habitats (only unique form normalization) 0.7714
+
+
+!! test
+exact_match_plus_onto_biotope_plus_plus_rules_plus_word_embedding_by_mean
+	main scoring 0.3673
+	habitats 0.7219
+	habitats (exact) 0.5487
+	habitats (new in dev) 0.4906
+	habitats (new in test) 0.09639
+	habitats (only unique form normalization) 0.6962
+
+
+
+
+

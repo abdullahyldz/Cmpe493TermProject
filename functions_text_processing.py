@@ -162,3 +162,29 @@ def get_most_similar_term_word_embedding_by_mean(term_name, term_mappings, word_
     most_similar_term_id = term_mappings[most_similar_term_known]
     return most_similar_term_id, max_similarity, most_similar_term_known
 
+
+def get_most_similar_term_word_embedding_by_mean_threshold(term_name, term_mappings, word_embedding_model):
+    terms_known = list(term_mappings.keys())
+
+    most_similar_term_known = terms_known[0]
+    max_similarity = 0
+
+    term_name_mean_word_embedding = get_mean_word_embedding(term_name, word_embedding_model)
+
+    for term_known in terms_known:
+        term_known_mean_word_embedding = get_mean_word_embedding(term_known, word_embedding_model)
+        mean_word_embedding_similarity = cosine_similarity(term_name_mean_word_embedding.reshape(1, -1), term_known_mean_word_embedding.reshape(1,-1))[0][0]
+        if mean_word_embedding_similarity > max_similarity:
+            most_similar_term_known = term_known
+            max_similarity = mean_word_embedding_similarity
+
+    most_similar_term_id = term_mappings[most_similar_term_known]
+
+    if max_similarity > 0.5:
+        return most_similar_term_id, max_similarity, most_similar_term_known
+    else:
+        most_similar_term_id = ''
+        max_similarity = 0
+        most_similar_term_known = ''
+        return most_similar_term_id, max_similarity, most_similar_term_known
+
